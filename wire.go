@@ -1,8 +1,6 @@
 package dynago
 
-import (
-	"strconv"
-)
+import "strconv"
 
 func wireEncode(value interface{}) interface{} {
 	switch v := value.(type) {
@@ -10,6 +8,8 @@ func wireEncode(value interface{}) interface{} {
 		return &wireString{v}
 	case int:
 		return &wireNumber{strconv.Itoa(v)}
+	case int64:
+		return &wireNumber{strconv.FormatInt(v, 10)}
 	case bool:
 		return &wireBool{v}
 	case float64:
@@ -24,6 +24,8 @@ func wireEncode(value interface{}) interface{} {
 		return &wireMap{output}
 	case []byte:
 		return &wireBinary{v}
+	case []string:
+		return &wireStringSet{v}
 	case StringSet:
 		return &wireStringSet{v}
 	case NumberSet:
@@ -96,6 +98,8 @@ func wireDecode(original interface{}) interface{} {
 			return Number(val.(string))
 		case "NS":
 			return wireDecodeNumberSet(val)
+		case "SS":
+			return wireDecodeStringSet(val)
 		case "L":
 			return wireDecodeList(val)
 		}
@@ -105,6 +109,15 @@ func wireDecode(original interface{}) interface{} {
 
 func wireDecodeNumberSet(val interface{}) interface{} {
 	return Number(val.(string))
+}
+
+func wireDecodeStringSet(val interface{}) interface{} {
+	valSlice := val.([]interface{})
+	resultSlice := StringSet{}
+	for _, v := range valSlice {
+		resultSlice = append(resultSlice, v.(string))
+	}
+	return resultSlice
 }
 
 func wireDecodeList(val interface{}) interface{} {

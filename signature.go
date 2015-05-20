@@ -5,6 +5,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/hex"
+	"fmt"
 	"net/http"
 	"sort"
 	"strings"
@@ -40,6 +41,7 @@ func (info *awsInfo) signRequest(request *http.Request, bodyBytes []byte) {
 	signingKey := signingKey(now, info)
 	signature := hex.EncodeToString(hmacShort(signingKey, []byte(stringToSign)))
 	authHeader := algorithm + " Credential=" + info.AccessKey + "/" + credentialScope + ", SignedHeaders=" + signedHeaders + ", Signature=" + signature
+	fmt.Println(authHeader)
 	request.Header.Add("Authorization", authHeader)
 }
 

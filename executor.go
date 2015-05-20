@@ -3,7 +3,9 @@ package dynago
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
+	"log"
 	"net/http"
 
 	"github.com/underarmour/dynago/schema"
@@ -51,6 +53,7 @@ func (e *awsExecutor) makeRequest(target string, document interface{}) ([]byte, 
 	}
 	body := bytes.NewBuffer(buf)
 	req, err := http.NewRequest("POST", e.endpoint, body)
+	log.Printf("--------------- Making request ---------------\n\n %s \n\n ---------------------------------------------", body)
 	if err != nil {
 		return nil, err
 	}
@@ -59,6 +62,7 @@ func (e *awsExecutor) makeRequest(target string, document interface{}) ([]byte, 
 	req.Header.Set("Host", req.URL.Host)
 	e.aws.signRequest(req, buf)
 	response, err := e.caller.Do(req)
+	fmt.Printf("%+v\n", req)
 	if err != nil {
 		return nil, err
 	}

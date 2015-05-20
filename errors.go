@@ -21,7 +21,7 @@ func (e *Error) Error() string {
 	if exception == "" {
 		exception = e.AmazonRawType
 	}
-	return fmt.Sprintf("dynago.Error(%d): %s: %s", e.Type, exception, e.Message)
+	return fmt.Sprintf("dynago.Error(%d): %s: %s %s", e.Type, exception, e.Message)
 }
 
 // Parse and create the error

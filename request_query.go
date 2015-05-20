@@ -35,6 +35,11 @@ type Query struct {
 	req    queryRequest
 }
 
+func (q Query) IndexName(name string) *Query {
+	q.req.IndexName = name
+	return &q
+}
+
 // If strong is true, do a strongly consistent read. (defaults to false)
 func (q Query) ConsistentRead(strong bool) *Query {
 	q.req.ConsistentRead = &strong

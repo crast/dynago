@@ -11,8 +11,12 @@ region is the AWS region, e.g. us-east-1.
 accessKey is your amazon access key ID.
 secretKey is your amazon secret key ID.
 */
-func NewClient(region string, accessKey string, secretKey string) *Client {
+func NewClient(region, accessKey, secretKey string) *Client {
 	endpoint := "https://dynamodb." + region + ".amazonaws.com/"
+	return NewEndpointClient(endpoint, region, accessKey, secretKey)
+}
+
+func NewEndpointClient(endpoint, region, accessKey, secretKey string) *Client {
 	return &Client{
 		executor: NewAwsExecutor(endpoint, region, accessKey, secretKey),
 	}
