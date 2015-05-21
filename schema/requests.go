@@ -6,6 +6,18 @@ type CreateRequest struct {
 	KeySchema             []KeySchema
 	ProvisionedThroughput ProvisionedThroughput
 	// TODO local and global secondary indexes
+	GlobalSecondaryIndexes []SecondaryIndex
+}
+
+type SecondaryIndex struct {
+	IndexName             string
+	KeySchema             []KeySchema
+	Projection            Projection
+	ProvisionedThroughput ProvisionedThroughput
+}
+
+type Projection struct {
+	ProjectionType string
 }
 
 func NewCreateRequest(table string) *CreateRequest {
