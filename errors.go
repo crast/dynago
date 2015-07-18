@@ -86,6 +86,10 @@ const (
 	ErrorServiceUnavailable     // Amazon service unavailable
 	ErrorThrottling             // Amazon is throttling us, try later
 	ErrorResourceInUse          // Tried to create existing table, delete a table in CREATING state, etc.
+
+	// DynamoDB Streams-specific errors
+	ErrorExpiredIterator // Iterator is no longer valid
+	ErrorTrimmedData     // Attempted to access data older than 24h
 )
 
 type amazonErrorConfig struct {

@@ -29,4 +29,7 @@ func TestCodeMatch(t *testing.T) {
 	check(dynago.ErrorServiceUnavailable, codes.ErrorServiceUnavailable)
 	check(dynago.ErrorThrottling, codes.ErrorThrottling)
 	check(dynago.ErrorResourceInUse, codes.ErrorResourceInUse)
+
+	check(dynago.ErrorExpiredIterator, codes.ErrorExpiredIterator)
+	check(dynago.ErrorTrimmedData, codes.ErrorTrimmedData)
 }

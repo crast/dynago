@@ -37,4 +37,9 @@ var MappedErrors = []DynamoErrorConfig{
 	{"ThrottlingException", 400, codes.ErrorThrottling},
 	{"ValidationError", 400, codes.ErrorInvalidParameter},
 	{"ValidationException", 400, codes.ErrorInvalidParameter},
+
+	// DynamoDB Streams
+	{"ExpiredIteratorException", 400, codes.ErrorExpiredIterator},
+	{"LimitExceededException", 400, codes.ErrorThrottling},
+	{"TrimmedDataAccessException", 400, codes.ErrorTrimmedData},
 }
