@@ -7,6 +7,7 @@ type CreateRequest struct {
 	ProvisionedThroughput  ProvisionedThroughput
 	GlobalSecondaryIndexes []SecondaryIndex
 	LocalSecondaryIndexes  []SecondaryIndex
+	StreamSpecification    *StreamSpecification `json:",omitempty"`
 }
 
 func NewCreateRequest(table string) *CreateRequest {

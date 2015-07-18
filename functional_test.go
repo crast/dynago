@@ -86,6 +86,10 @@ func complexIndexedSchema() *schema.CreateRequest {
 				ProvisionedThroughput: schema.ProvisionedThroughput{1, 1},
 			},
 		},
+		StreamSpecification: &schema.StreamSpecification{
+			StreamEnabled:  true,
+			StreamViewType: "NEW_AND_OLD_IMAGES",
+		},
 	}
 }
 

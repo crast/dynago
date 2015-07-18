@@ -27,12 +27,18 @@ type TableDescription struct {
 	TableName        string
 	TableSizeBytes   uint64
 	TableStatus      string
-	CreationDateTime float64
+	CreationDateTime float64 // Unix epoch time
 
 	KeySchema              []KeySchema
 	AttributeDefinitions   []AttributeDefinition
 	GlobalSecondaryIndexes []SecondaryIndexResponse
 	LocalSecondaryIndexes  []SecondaryIndexResponse
+	ProvisionedThroughput  ProvisionedThroughputDescription
+
+	// Streams
+	LatestStreamArn     string
+	LatestStreamLabel   string
+	StreamSpecification *StreamSpecification
 }
 
 type ProvisionedThroughput struct {
@@ -69,4 +75,16 @@ type SecondaryIndexResponse struct {
 	IndexSizeBytes int
 	IndexStatus    string
 	ItemCount      int
+}
+
+type ProvisionedThroughputDescription struct {
+	ProvisionedThroughput
+	LastDecreaseDateTime   float64
+	LastIncreaseDateTime   float64
+	NumberOfDecreasesToday int
+}
+
+type StreamSpecification struct {
+	StreamEnabled  bool
+	StreamViewType string
 }
