@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/underarmour/dynago"
+	"gopkg.in/underarmour/dynago.v1"
 )
 
 func TestNumberIntValReturnsTheValueAsAnInt(t *testing.T) {

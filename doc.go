@@ -71,4 +71,4 @@ There are also helpers that let you set multiple parameters, or inline with expr
 	query.Params(Document{":foo":45, "#foo": "Foo"})
 
 */
-package dynago
+package dynago // import gopkg.in/underarmour/dynago.v1

@@ -3,8 +3,8 @@ package codes_test
 import (
 	"testing"
 
-	"github.com/underarmour/dynago"
-	"github.com/underarmour/dynago/internal/codes"
+	"gopkg.in/underarmour/dynago.v1"
+	"gopkg.in/underarmour/dynago.v1/internal/codes"
 
 	"github.com/stretchr/testify/assert"
 )

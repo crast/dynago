@@ -15,9 +15,9 @@ Installation
 ------------
 Install using `go get`:
 
-    go get github.com/underarmour/dynago
+    go get gopkg.in/underarmour/dynago.v1
 
-Docs are at http://godoc.org/github.com/underarmour/dynago
+Docs are at http://godoc.org/gopkg.in/underarmour/dynago.v1
 
 Example
 -------

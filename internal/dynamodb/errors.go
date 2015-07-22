@@ -4,7 +4,7 @@
 package dynamodb
 
 import (
-	"github.com/underarmour/dynago/internal/codes"
+	"gopkg.in/underarmour/dynago.v1/internal/codes"
 )
 
 type DynamoErrorConfig struct {

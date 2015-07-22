@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/underarmour/dynago"
-	"github.com/underarmour/dynago/schema"
+	"gopkg.in/underarmour/dynago.v1"
+	"gopkg.in/underarmour/dynago.v1/schema"
 )
 
 type functional struct {

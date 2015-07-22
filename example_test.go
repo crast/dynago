@@ -2,7 +2,7 @@ package dynago_test
 
 import (
 	"fmt"
-	"github.com/underarmour/dynago"
+	"gopkg.in/underarmour/dynago.v1"
 )
 
 var region, accessKey, secretKey, table string

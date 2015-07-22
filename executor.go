@@ -3,8 +3,8 @@ package dynago
 import (
 	"encoding/json"
 
-	"github.com/underarmour/dynago/internal/aws"
-	"github.com/underarmour/dynago/schema"
+	"gopkg.in/underarmour/dynago.v1/internal/aws"
+	"gopkg.in/underarmour/dynago.v1/schema"
 )
 
 /*

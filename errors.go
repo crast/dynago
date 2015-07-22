@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/underarmour/dynago/internal/dynamodb"
+	"gopkg.in/underarmour/dynago.v1/internal/dynamodb"
 )
 
 // Encapsulates errors coming from amazon/dynamodb

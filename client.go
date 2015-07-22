@@ -1,7 +1,7 @@
 package dynago
 
 import (
-	"github.com/underarmour/dynago/schema"
+	"gopkg.in/underarmour/dynago.v1/schema"
 )
 
 /*

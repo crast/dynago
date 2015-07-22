@@ -8,8 +8,11 @@ go:
 env:
     global:
         - DYNAGO_TEST_ENDPOINT="http://localhost:8001/"
+        - DYNAGO_SUBPATH="src/gopkg.in/underarmour/dynago.v0"
 
 before_install:
+    - "pwd"
+    - "if ! pwd | grep -q 'gopkg.in/underarmour'; then cd $GOPATH && mkdir -p $(dirname $DYNAGO_SUBPATH) && pwd && mv $TRAVIS_BUILD_DIR $DYNAGO_SUBPATH && cd $DYNAGO_SUBPATH && pwd && export TRAVIS_BUILD_DIR=`pwd`; fi"
     - "wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz"
     - "tar -zxvf dynamodb_local_latest.tar.gz"
     - "java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -port 8001 &"
